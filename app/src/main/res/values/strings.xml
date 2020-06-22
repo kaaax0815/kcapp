@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">KcUI</string>
+    <string name="title_activity_drawer">Übersicht</string>
+    <string name="navigation_drawer_open">Übersicht öffnen</string>
+    <string name="navigation_drawer_close">Übersicht schließen</string>
+    <string name="nav_header_title">KcUI</string>
+    <string name="nav_header_subtitle">request@kaaaxcreators.de</string>
+    <string name="nav_header_desc">Ka was da stehen soll</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_logout">Abmelden</string>
+    <string name="menu_home">Start</string>
+    <string name="menu_gallery">Galerie</string>
+    <string name="menu_slideshow">Diashow</string>
+    <string name="access_denied">Es ist ein Fehler aufgetreten</string>
+</resources>
