@@ -40,7 +40,7 @@ class Register : AppCompatActivity() {
                         if (task.isSuccessful) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success")
-                            val user = auth.currentUser
+                            //unused val user = auth.currentUser
                             val intent = Intent(this, MainActivity::class.java).apply {
                             }
                             startActivity(intent)
@@ -55,11 +55,11 @@ class Register : AppCompatActivity() {
                     }
             }
             else {
-                editTextTextPassword.error = R.string.password_short.toString()
+                editTextTextPassword.error = resources.getString(R.string.password_short)
             }
         }
         else {
-            editTextTextEmailAddress.error = R.string.email_short.toString()
+            editTextTextEmailAddress.error = resources.getString(R.string.email_short)
         }
     }
     private fun signin(){

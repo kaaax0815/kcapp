@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity(){
     }
 
     private fun btnsignin(){
-        var email1 = email_txt.text
-        var password1 = password_txt.text
-        var email = email1.toString()
-        var password = password1.toString()
+        val email1 = email_txt.text
+        val password1 = password_txt.text
+        val email = email1.toString()
+        val password = password1.toString()
         if (email1.length > 3){
             if (password1.length > 5){
                 auth.signInWithEmailAndPassword(email, password)
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(){
                         if (task.isSuccessful) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success")
-                            val user = auth.currentUser
+                            // unused val user = auth.currentUser
                             val intent = Intent(this, Drawer::class.java).apply {
                             }
                             startActivity(intent)
@@ -51,12 +51,11 @@ class MainActivity : AppCompatActivity(){
                     }
             }
             else {
-                password_txt.error = R.string.password_short.toString()
+                password_txt.error = resources.getString(R.string.password_short)
             }
         }
         else {
-            var email_short = R.string.email_short
-            email_txt.error = email_short
+            email_txt.error = resources.getString(R.string.email_short)
         }
 
     }
