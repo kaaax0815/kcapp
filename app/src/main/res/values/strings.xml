@@ -1,15 +1,26 @@
 <resources>
     <string name="app_name">KcUI</string>
-    <string name="title_activity_drawer">Übersicht</string>
-    <string name="navigation_drawer_open">Übersicht öffnen</string>
-    <string name="navigation_drawer_close">Übersicht schließen</string>
-    <string name="nav_header_title">KcUI</string>
-    <string name="nav_header_subtitle">request@kaaaxcreators.de</string>
-    <string name="nav_header_desc">Ka was da stehen soll</string>
-    <string name="action_settings">Einstellungen</string>
-    <string name="action_logout">Abmelden</string>
-    <string name="menu_home">Start</string>
-    <string name="menu_gallery">Galerie</string>
-    <string name="menu_slideshow">Diashow</string>
-    <string name="access_denied">Es ist ein Fehler aufgetreten</string>
+    <string name="title_activity_drawer">Overview</string>
+    <string name="navigation_drawer_open">Open drawer</string>
+    <string name="navigation_drawer_close">Close drawer</string>
+    <string name="nav_header_title" translatable="false">KcUI</string>
+    <string name="nav_header_subtitle" translatable="false">request@kaaaxcreators.de</string>
+    <string name="nav_header_desc">This is an description</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Logout</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="access_denied">An error has occurred</string>
+    <string name="title_activity_register">Register</string>
+    <string name="register_agreement">By creating an account, you accept the EULA @kaaaxcreators</string>
+    <string name="account_exists">Already have an account? Sign in</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_in">Sign in</string>
+    <string name="no_account_exists">Don\'t have an account? Sign up</string>
+    <string name="error" translatable="false">Error</string>
+    <string name="password_short">Password is to short!</string>
+    <string name="email_short">Email is invalid!</string>
 </resources>

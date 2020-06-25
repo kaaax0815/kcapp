@@ -3,79 +3,69 @@ package de.kaaaxcreators.kcui
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.ktx.auth
+import kotlinx.android.synthetic.main.activity_main.*
 
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.tasks.Task
 
 class MainActivity : AppCompatActivity(){
-    lateinit var mGoogleSignInClient: GoogleSignInClient
-    private val RC_SIGN_IN = 9001
+    private lateinit var auth: FirebaseAuth
+    private val TAG = R.string.error.toString()
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
-            val google_login_btn: Button = findViewById(R.id.google_login_btn) as Button
-            val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("478802922762-d1iho7a30hioa7qgnlggms7j04ipepef.apps.googleusercontent.com")
-                .requestEmail()
-                .build()
+            auth = Firebase.auth
+            buttonlogin.setOnClickListener { btnsignin() }
+            textView2.setOnClickListener { register() }
 
-            mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+    }
 
-            google_login_btn.setOnClickListener {
-                signIn()
+    private fun btnsignin(){
+        var email1 = email_txt.text
+        var password1 = password_txt.text
+        var email = email1.toString()
+        var password = password1.toString()
+        if (email1.length > 3){
+            if (password1.length > 5){
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success")
+                            val user = auth.currentUser
+                            val intent = Intent(this, Drawer::class.java).apply {
+                            }
+                            startActivity(intent)
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.exception)
+                            Toast.makeText(this, (R.string.access_denied), Toast.LENGTH_SHORT).show()
+                            // ...
+                        }
+
+                        // ...
+                    }
             }
-    }
-    private fun signIn() {
-        val signInIntent = mGoogleSignInClient.signInIntent
-        startActivityForResult(
-            signInIntent, RC_SIGN_IN
-        )
-
-    }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RC_SIGN_IN) {
-            val task =
-                GoogleSignIn.getSignedInAccountFromIntent(data)
-            handleSignInResult(task)
+            else {
+                password_txt.error = R.string.password_short.toString()
+            }
         }
-    }
-
-    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
-        try {
-            // Signed in successfully
-            val intent = Intent(this, Drawer::class.java).apply {
-            }
-            startActivity(intent)
-
-        } catch (e: ApiException) {
-            // Sign in was unsuccessful
-            Log.e(
-                "failed code=", e.statusCode.toString()
-            )
-            revokeAccess()
+        else {
+            var email_short = R.string.email_short
+            email_txt.error = email_short
         }
+
     }
-    private fun signOut() {
-        mGoogleSignInClient.signOut()
-            .addOnCompleteListener(this) {
-                // Update your UI here
-            }
+    private fun register(){
+        val intent = Intent(this, Register::class.java).apply {
+        }
+        startActivity(intent)
     }
-    private fun revokeAccess() {
-        mGoogleSignInClient.revokeAccess()
-            .addOnCompleteListener(this) {
-                Toast.makeText(this, (R.string.access_denied), Toast.LENGTH_LONG).show()
-            }
-    }
+
 
 
 

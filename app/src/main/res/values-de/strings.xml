@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KcUI</string>
+    <string name="title_activity_drawer">Übersicht</string>
+    <string name="navigation_drawer_open">Übersicht öffnen</string>
+    <string name="navigation_drawer_close">Überischt schließen</string>
+    <string name="nav_header_desc">Dies ist eine Beschreibung</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_logout">Abmelden</string>
+    <string name="menu_home">Übersicht</string>
+    <string name="menu_gallery">Galerie</string>
+    <string name="menu_slideshow">Diashow</string>
+    <string name="access_denied">Es ist ein Fehler aufgetreten</string>
+    <string name="title_activity_register">Registrieren</string>
+    <string name="register_agreement">Wenn Sie einen Benutzer erstellen, stimmen Sie der EULA zu @kaaaxcreators</string>
+    <string name="account_exists">Sie haben bereits ein Konto? Einloggen</string>
+    <string name="sign_in">Einloggen</string>
+    <string name="sign_up">Registrieren</string>
+    <string name="no_account_exists">Sie haben noch keinen Account? Registrieren</string>
+    <string name="password_hint">Passwort</string>
+    <string name="email_hint">Email</string>
+    <string name="password_short">Passwort ist zu kurz!</string>
+    <string name="email_short">Email ist ungültig!</string>
+</resources>
